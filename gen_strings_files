@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# gen_strings_files <programming_language> <config_file> <source_file>
+
+srcFile=$3
+resultsDir="results"
+rm -rf $resultsDir
+mkdir -p $resultsDir/$1
+
+if [ "$3" == "" ]
+then
+	echo "ERROR: You need to specify the programming language to use on generation, the name of the config and source files."
+	echo "usage: gen_string_files [Android | iOS] config_file source_file"
+else
+	while read line
+	do
+		language=$(echo $line|cut -d, -f1)
+		column=$(echo $line|cut -d, -f2)
+		# iOS 
+		if [ "$1" == "iOS" ]
+		then
+			dir="$resultsDir/$1/$language.lproj"
+			mkdir $dir
+			file="./$dir/Localizable.strings"
+			echo "$1 - $language: Generating $file ..."
+			cat $srcFile|cut -d, -f1,$column|sed 's/^/"/g'|sed 's/,/"="/g'|sed 's/$/";/g' > $file
+		# Android
+		elif [ "$1" == "Android" ]
+		then
+			dir="$resultsDir/$1/values-$language"
+			mkdir $dir
+			file="./$dir/strings.xml"
+			echo "$1 - $language: Generating $file ..."
+			echo "<?xml version="1.0" encoding="utf-8"?>" > $file
+			echo " <resources>" >> $file
+			cat $srcFile|cut -d, -f1,$column|sed 's/^/  <string name="/g'|sed 's/,/">/g'|sed 's/$/<\/string>/g' >> $file
+			echo " </resources>" >> $file
+		fi
+	done < $2
+
+fi
+
