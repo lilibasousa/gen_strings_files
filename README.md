@@ -55,6 +55,6 @@ gen_strings_files programming_language config_file source_file
 
 ### Examples:
 ```bash
-gen_strings_files iOS pt,it
-gen_strings_files Android it
+gen_strings_files iOS examples/config.csv examples/source.csv
+gen_strings_files Android examples/config.csv examples/source.csv
 ```
