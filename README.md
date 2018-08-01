@@ -49,6 +49,7 @@ it,4
 ```
 
 # Running the scripts
+To generate the strings files use:
 ```bash
 gen_strings_files programming_language config_file source_file
 ```
@@ -58,3 +59,11 @@ gen_strings_files programming_language config_file source_file
 gen_strings_files iOS examples/config.csv examples/source.csv
 gen_strings_files Android examples/config.csv examples/source.csv
 ```
+
+At the moment only iOS and Android are supported.
+The result files will be under the folder named "results".
+To remove this folder, you can use the script with clear as param:
+```bash
+gen_strings_files clear
+```
+
