@@ -4,7 +4,7 @@
 
 # define usage function
 usage(){
-	echo "ERROR: You can use clear to remove the results directory or you need to specify the programming language to use on generation, the name of the config and source files."
+	echo "ERROR: You can use clear to remove the results folder or you need to specify the programming language to use on generation, the name of the config and source files."
 	echo "usage: gen_string_files [Android | iOS] config_file source_file"
 	echo "       gen_string_files clear"
 	exit 1
