@@ -8,7 +8,6 @@ This script generates strings files for different languages based on a CSV file.
 ## CSV file with the translations
 You will need a csv file with the translations.  
 You can export to csv from an excel, for instance.  
-This file should be names as source.csv  
 
 ```bash
 string1_key,string1_in_language1,...,string1_in_languageN
@@ -31,7 +30,6 @@ string_dinner,dinner,jantar,cena
 ## Config file with the languages to generate
 You will need a csv file with the config for the files you want to generate.   
 There you will need to specify, per line, the language you want to generate and in  which column of the source.csv you have the value for it.    
-This file should be names as config.csv  
 
 ```bash
 language1,column_for_language1
@@ -60,9 +58,9 @@ gen_strings_files iOS examples/config.csv examples/source.csv
 gen_strings_files Android examples/config.csv examples/source.csv
 ```
 
-At the moment only iOS and Android are supported.
-The result files will be under the folder named "results".
-To remove this folder, you can use the script with clear as param:
+At the moment only iOS and Android are supported.   
+The result files will be under the folder named "results".   
+To remove this folder, you can use the script with clear as param:   
 ```bash
 gen_strings_files clear
 ```
