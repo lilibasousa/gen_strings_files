@@ -46,7 +46,7 @@ pt,3
 it,4
 ```
 
-# Running the scripts
+# Running the script
 To generate the strings files use:
 ```bash
 gen_strings_files programming_language config_file source_file
