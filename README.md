@@ -50,6 +50,7 @@ it,4
 To generate the strings files use:
 ```bash
 gen_strings_files programming_language config_file source_file
+programming_language: iOS | Android
 ```
 
 ### Examples:
